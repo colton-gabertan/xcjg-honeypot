@@ -17,7 +17,7 @@ In essence, I hosted two virtual servers on the Google Cloud Platform. One for m
 > There are even some neat features integrated such as HoneyMap, which maps out the incoming attacks in real time.
 
 ### Admin UI
-![image](https://user-images.githubusercontent.com/66766340/150747295-04519b2b-4a1f-45c0-9deb-4dea6e5cc357.png)
+![image](https://user-images.githubusercontent.com/66766340/150749609-cc1975cf-f96c-4672-b80e-9f065969a71f.png)
 
 ### HoneyMap
 <img src="https://github.com/colton-gabertan/xcjg-honeypot/blob/Index/honeymap1.gif">
