@@ -29,6 +29,8 @@ From here we have a clean UI to view some interesting stats; however, my end goa
 
 Thanks to `wireshark`, we can actually download the intercepted data. This feature is what allows us to pull any binaries or malicious traffic containing code into our malware analysis environment. We can hash files to cross-check samples with databases such as [VirusTotal], check to see if any antivirus scans (like malwarebytes, bitdefender, etc.) will pick up on our samples, and even get into reverse engineering live malware.
 
+## Malware HoneyPot Findings
+
 [honeypot]: https://blog.malwarebytes.com/101/2021/05/what-is-a-honeypot-how-they-are-used-in-cybersecurity/
 [Modern Honey Network]: https://github.com/pwnlandia/mhn
 [Google Cloud Platform]: https://cloud.google.com/free/
