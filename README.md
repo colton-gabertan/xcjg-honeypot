@@ -22,11 +22,16 @@ In essence, I hosted two virtual servers on the Google Cloud Platform. One for m
 ### HoneyMap
 <img src="https://github.com/colton-gabertan/xcjg-honeypot/blob/Index/honeymap1.gif">
 
-From here we have a clean UI to view some interesting stats; however, my end goal with the honeypot was to collect malware samples. To do so, in the honeypot server, I used `screen` to run a continuous `tcpdump` that would write to a `.pcap` file. After letting it run and collect some traffic, I `scp`ed the pcap and viewed the data with `wireshark` in my FLAREVM. We also have the option to export the traffic logs into a .json from the honeypot.
+From here we have a clean UI to view some interesting stats; however, my end goal with the honeypot was to collect malware samples. To do so, in the honeypot server, I used `screen` to run a continuous `tcpdump` that would write to a `.pcap` file. After letting it run and collect some traffic, I `scp`ed the pcap and viewed the data with `wireshark` in my FLAREVM. We also have the option to export the traffic logs into a `.json` from the honeypot.
 
+### Continuous `tcpdump` as a Detached Process
+<img src="https://github.com/colton-gabertan/xcjg-honeypot/blob/Index/tcpdump.gif">
+
+Thanks to `wireshark`, we can actually download the intercepted data. This feature is what allows us to pull any binaries or malicious traffic containing code into our malware analysis environment. We can hash files to cross-check samples with databases such as [VirusTotal], check to see if any antivirus scans (like malwarebytes, bitdefender, etc.) will pick up on our samples, and even get into reverse engineering live malware.
 
 [honeypot]: https://blog.malwarebytes.com/101/2021/05/what-is-a-honeypot-how-they-are-used-in-cybersecurity/
 [Modern Honey Network]: https://github.com/pwnlandia/mhn
 [Google Cloud Platform]: https://cloud.google.com/free/
 [Dionaea]: https://github.com/DinoTools/dionaea\
 [FLAREVM]: https://github.com/mandiant/flare-vm
+[VirusTotal]: https://www.virustotal.com/gui/home/url
