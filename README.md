@@ -31,7 +31,14 @@ Thanks to `wireshark`, we can actually download the intercepted data. This featu
 
 ## Malware HoneyPot Findings:
 
+These findings are accumulated after just two days of up-time. Out of curiosity, I pulled the pcap that the tcpdump has been writing to and found a pretty staggering amount of network traffic. Most of the traffic consisted of port-scans; however, it was relatively easy to see some areas where intrusion attempts had been made.
+
 ### Attempted FTP Exploits
+![image](https://user-images.githubusercontent.com/66766340/151256295-151edc01-b39d-446e-8fb7-38d7dff7eaee.png)
+
+This is just one of the [many examples] of FTP-based intrusions that I was able to see in my honeypot's network traffic. In this attempt, the attacker actually managed to download the working directory, which was just empty. Neat to see, but it is not quite what I'm looking for. However, I will be sure to include more things I find interesting.
+
+
 
 
 
@@ -41,3 +48,4 @@ Thanks to `wireshark`, we can actually download the intercepted data. This featu
 [Dionaea]: https://github.com/DinoTools/dionaea\
 [FLAREVM]: https://github.com/mandiant/flare-vm
 [VirusTotal]: https://www.virustotal.com/gui/home/url
+[many examples]: https://github.com/colton-gabertan/xcjg-honeypot/blob/Index/honeypotFindings/ftp.pcap
