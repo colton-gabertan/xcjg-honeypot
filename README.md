@@ -36,7 +36,7 @@ These findings are accumulated after just two days of up-time. Out of curiosity,
 ### Attempted FTP Exploits
 ![image](https://user-images.githubusercontent.com/66766340/151256295-151edc01-b39d-446e-8fb7-38d7dff7eaee.png)
 
-This is just one of the [many examples] of FTP-based intrusions that I was able to see in my honeypot's network traffic. In this attempt, the attacker actually managed to download the working directory, which was just empty. Neat to see, but it is not quite what I'm looking for. However, I will be sure to include more things I find interesting.
+This is just one of the [many examples] of FTP-based intrusions that I was able to see in my honeypot's network traffic. In this attempt, the attacker was trying to poke around in the filesystem, which was just empty. Neat to see, but it is not quite what I'm looking for. However, I will be sure to include more things I find interesting.
 
 
 
