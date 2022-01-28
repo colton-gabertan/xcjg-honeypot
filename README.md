@@ -1,4 +1,4 @@
-# Security Research: Malware HoneyPot
+# Security Research: HoneyPot Project
 
 ## Overview:
 
@@ -72,7 +72,7 @@ A useful indication of compromise is if they also try to POST with these [bytes]
 ```
 Which are also pulled directly from my pcap.
 
-There are also a handful of POST requests that try to upload scripts to directories within the honeypot; however, since they don't exist the requests failed. Other than the GET /.env requests, there is similar traffic also looking for config files in order to gain some good footholds on actual websites which may be compromised in that manner.
+There are also a handful of POST requests that try to upload scripts to directories within the honeypot; however, since they don't exist, the requests failed. Other than the GET /.env requests, there is similar traffic also looking for config files in order to gain some good footholds on actual websites or cloud servers which may be compromised in that manner.
 
 [honeypot]: https://blog.malwarebytes.com/101/2021/05/what-is-a-honeypot-how-they-are-used-in-cybersecurity/
 [Modern Honey Network]: https://github.com/pwnlandia/mhn
