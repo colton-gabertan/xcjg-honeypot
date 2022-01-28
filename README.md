@@ -31,7 +31,9 @@ Thanks to `wireshark`, we can actually download the intercepted data. This featu
 
 ## HoneyPot Findings:
 
-These findings are accumulated after just two days of up-time. Out of curiosity, I pulled the pcap that the tcpdump has been writing to and found a pretty staggering amount of network traffic. Most of the traffic consisted of port-scans; however, it was relatively easy to see some areas where intrusion attempts had been made.
+### 23 JAN 2022 - 26 JAN 2022
+
+These findings are accumulated after just three days of up-time. Out of curiosity, I pulled the pcap that the tcpdump has been writing to and found a pretty staggering amount of network traffic. Most of the traffic consisted of port-scans; however, it was relatively easy to see some areas where intrusion attempts had been made.
 
 ### Attempted FTP Exploits
 ![image](https://user-images.githubusercontent.com/66766340/151256295-151edc01-b39d-446e-8fb7-38d7dff7eaee.png)
@@ -73,6 +75,10 @@ A useful indication of compromise is if they also try to POST with these [bytes]
 Which are also pulled directly from my pcap.
 
 There are also a handful of POST requests that try to upload scripts to directories within the honeypot; however, since they don't exist, the requests failed. Also, any attempts that contained potential malware urls lead to dead ends so far. Other than the GET /.env requests, there is similar traffic also looking for config files in order to gain some good footholds on actual websites or cloud servers which may be compromised in that manner.
+
+---
+
+### 27 JAN 2022 -
 
 [honeypot]: https://blog.malwarebytes.com/101/2021/05/what-is-a-honeypot-how-they-are-used-in-cybersecurity/
 [Modern Honey Network]: https://github.com/pwnlandia/mhn
