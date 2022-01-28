@@ -77,7 +77,7 @@ There are also a handful of POST requests that try to upload scripts to director
 [honeypot]: https://blog.malwarebytes.com/101/2021/05/what-is-a-honeypot-how-they-are-used-in-cybersecurity/
 [Modern Honey Network]: https://github.com/pwnlandia/mhn
 [Google Cloud Platform]: https://cloud.google.com/free/
-[Dionaea]: https://github.com/DinoTools/dionaea\
+[Dionaea]: https://dionaea.readthedocs.io/en/latest/
 [FLAREVM]: https://github.com/mandiant/flare-vm
 [VirusTotal]: https://www.virustotal.com/gui/home/url
 [many examples]: https://github.com/colton-gabertan/xcjg-honeypot/blob/Index/honeypotFindings/ftp.pcap
