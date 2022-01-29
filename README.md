@@ -62,7 +62,7 @@ These alerts are from the auth.log indicating attempts of ssh brute-forcing. Aft
 ### URL Manipulation
 ![image](https://user-images.githubusercontent.com/66766340/151514217-6aa829d3-796a-4493-80bf-76924a48fb81.png)
 
-It seems the attackers that send these GET requests for the /.env file are looking to scrape data from that config file in order to run a [successful SMTP attack] on web apps that have debug mode enabled.
+It seems the attackers that send these `GET` requests for the `/.env` file are looking to scrape data from that config file in order to run a [successful SMTP attack] on web apps that have debug mode enabled.
 
 A useful indication of compromise is if they also try to POST with these [bytes]:
 ```
@@ -72,9 +72,9 @@ A useful indication of compromise is if they also try to POST with these [bytes]
 0030   02 03 9e d5 00 00 30 78 25 35 42 25 35 44 3d 61   ......0x%5B%5D=a
 0040   6e 64 72 6f 78 67 68 30 73 74                     ndroxgh0st
 ```
-Which are also pulled directly from my pcap.
+Which are also pulled directly from [my pcap].
 
-There are also a handful of POST requests that try to upload scripts to directories within the honeypot; however, since they don't exist, the requests failed. Also, any attempts that contained potential malware urls lead to dead ends so far. Other than the GET /.env requests, there is similar traffic also looking for config files in order to gain some good footholds on actual websites or cloud servers which may be compromised in that manner.
+There are also a handful of `POST` requests that try to upload scripts to directories within the honeypot; however, since they don't exist, the requests failed. Also, any attempts that contained potential malware urls lead to dead ends so far. Other than the `GET /.env` requests, there is similar traffic also looking for config files in order to gain some good footholds on actual websites or cloud servers which may be compromised in that manner.
 
 ---
 
