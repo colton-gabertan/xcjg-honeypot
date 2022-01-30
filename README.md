@@ -78,7 +78,19 @@ There are also a handful of `POST` requests that try to upload scripts to direct
 
 ---
 
-### 27 JAN 2022 -
+### 27 JAN 2022 - 30 JAN 2022
+
+### Collecting Malware Samples
+
+After a few more days of letting it run, I checked on the findings via the MHN ui and saw a ton of traffic taking advantage of SMB. Exploiting SMB is very popular with worms and can be used to easily spread malware. Thanks to Dionea being configured to actually capture and save the files, I've successfully collected many samples, ready to be analyzed.
+
+Crosschecking with VirusTotal yields us results, and these binaries are, in fact, live malware.
+
+### VirusTotal Results
+![image](https://user-images.githubusercontent.com/66766340/151722579-cbd391ca-5a1c-42c3-b5ee-cc0407e240a8.png)
+> This one specifically is [WannaCry Ransomware].
+
+Dionaea was also capable enough to capture [droppers], instead of full programs as well, leaving a lot to explore within the collected samples after only a week of being up. 
 
 [honeypot]: https://blog.malwarebytes.com/101/2021/05/what-is-a-honeypot-how-they-are-used-in-cybersecurity/
 [Modern Honey Network]: https://github.com/pwnlandia/mhn
@@ -90,3 +102,5 @@ There are also a handful of `POST` requests that try to upload scripts to direct
 [successful SMTP attack]: https://thedfirreport.com/2021/02/28/laravel-debug-leaking-secrets/
 [bytes]: https://security.stackexchange.com/questions/255881/what-does-a-post-like-0x5b5d-somename-try-to-achieve
 [my pcap]: https://github.com/colton-gabertan/xcjg-honeypot/blob/Index/honeypotFindings/http.pcap
+[WannaCry Ransomware]: https://www.malwarebytes.com/wannacry
+[droppers]
