@@ -106,7 +106,7 @@ Suprisingly, MalwareBytes could only recognize 79% of the malware, and would lea
 
 ---
 
-With both commercial antivirus softwares not picking up 100% of the malware collected from the honeypot, this serves as a good argument to there still being a lot of research to be done through the use of honeypots such as this one.
+With both commercial antivirus softwares not picking up 100% of the malware collected from the honeypot, this serves as a good argument to there still being a lot of research to be done through the use of honeypots such as this one. Malware is constantly changing and evolving, and security research must be able to keep up in order to continue defending against it.
 
 [honeypot]: https://blog.malwarebytes.com/101/2021/05/what-is-a-honeypot-how-they-are-used-in-cybersecurity/
 [Modern Honey Network]: https://github.com/pwnlandia/mhn
