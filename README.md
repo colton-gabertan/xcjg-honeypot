@@ -1,4 +1,4 @@
-# Security Research: HoneyPot Project
+# Security Research: Basic Malware HoneyPot Project
 
 ## Overview:
 
