@@ -100,10 +100,14 @@ In total, I was able to collect 105 samples. Some of them are duplicates from th
 ### MalwareBytes Results on Sample Directory
 ![image](https://user-images.githubusercontent.com/66766340/151770470-c7c899b8-69a9-403c-aa06-2392743c45ec.png)
 
-Suprisingly, MalwareBytes could only recognize 79% of the malware, and would leave 21% of the malware on the system. For comparison, I ran a quick scan with Bitdefender and that one performed very poorly, detecting none of the samples.
+Suprisingly, MalwareBytes could only recognize 79% of the malware, and would leave 21% of the malware on the system. For comparison, I ran the same scan, but with Bitdefender instead. Bitdefender caught even less than MalwareBytes, picking up 71% or the samples, leaving 29% still on the system.
 
-### Bitdefender Quick Scan Results
-![image](https://user-images.githubusercontent.com/66766340/151773488-6903b5ae-b738-4217-853a-fc6feea9ef16.png)
+### Bitdefender Results on Sample Results
+![image](https://user-images.githubusercontent.com/66766340/151780585-2fe34a1d-e2d1-4745-9280-afc492b757c2.png)
+
+---
+
+With both commercial antivirus softwares not picking up 100% of the malware collected from the honeypot, this serves as a good argument to there still being a lot of research to be done through the use of honeypots such as this one.
 
 [honeypot]: https://blog.malwarebytes.com/101/2021/05/what-is-a-honeypot-how-they-are-used-in-cybersecurity/
 [Modern Honey Network]: https://github.com/pwnlandia/mhn
