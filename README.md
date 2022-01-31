@@ -11,10 +11,12 @@ This project is what's known as a [honeypot]. Essentially, it is a fake server u
 
 ## Setup:
 
-Due to my intentions with the honeypot, I did not see the need to beef it up and make it look particularly enticing for an attacker to try to infiltrate and escalate privileges. Mine was to serve as more of a monitor of HTTP traffic to see what is simply floating around on the internet and where it comes from. 
+Due to my intentions with the honeypot, I did not see the need to beef it up and make it look particularly enticing for an attacker to try to infiltrate and escalate privileges. Mine was to serve as more of a monitor of internet traffic to see what worms are floating around and propogating systems.
 
 In essence, I hosted two virtual servers on the Google Cloud Platform. One for monitoring ingress traffic and another to serve as the honeypot itself. There were virtually no firewall rules on the honeypot, so most traffic would be free range. Both were simple ubuntu servers with MHN and Dionaea configured. When setup correctly, the MHN framework allows us to `http` into the admin server to view the user interface in which we can see some analytics about the incoming attacks.
 > There are even some neat features integrated such as HoneyMap, which maps out the incoming attacks in real time.
+
+With MHN serving as a sort of SIEM, Dionaea is the service that will be monitoring and capturing malware samples. It does so by analyzing incoming traffic, running shellcode, and extracting malicious files as they come in. It saves the binaries in a directory that we can export into our malware analysis environment.
 
 ### Admin UI
 ![image](https://user-images.githubusercontent.com/66766340/150939244-6b87e92f-8efe-4327-a853-8e4b5c22f04e.png)
@@ -27,7 +29,7 @@ From here we have a clean UI to view some interesting stats; however, my end goa
 ### Continuous `tcpdump` as a Detached Process
 <img src="https://github.com/colton-gabertan/xcjg-honeypot/blob/Index/tcpdump.gif">
 
-Thanks to `wireshark`, we can actually download the intercepted data. This feature is what allows us to pull any binaries or malicious traffic containing code into our malware analysis environment. We can hash files to cross-check samples with databases such as [VirusTotal], check to see if any antivirus scans (like malwarebytes, bitdefender, etc.) will pick up on our samples, and even get into reverse engineering live malware.
+Thanks to `wireshark`, we can actually download the intercepted data. At this point, we can have Dionaea collect samples that it can recognize, and we'll have the traffic to export any interesting binary data that comes in as well. This feature is what allows us to pull any binaries or malicious traffic containing code into our malware analysis environment. We can hash files to cross-check samples with databases such as [VirusTotal], check to see if any antivirus scans (like malwarebytes, bitdefender, etc.) will pick up on our samples, and even get into reverse engineering live malware.
 
 ## HoneyPot Findings:
 
