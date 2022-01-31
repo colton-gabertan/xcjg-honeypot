@@ -95,6 +95,16 @@ Crosschecking with VirusTotal yields us results, and these binaries are, in fact
 
 Dionaea was also capable enough to capture [droppers], instead of full programs as well, leaving a lot to explore within the collected samples after only a week of being up. 
 
+In total, I was able to collect 105 samples. Some of them are duplicates from the same worms, and others are unique. With all of the samples in the same directory on my malware environment, I decided to conduct an antivirus scan on it to see how many it will actually detect. For my experiment, I chose to configure Malwarebytes to run a scan on the directory.
+
+### MalwareBytes Results on Sample Directory
+![image](https://user-images.githubusercontent.com/66766340/151770470-c7c899b8-69a9-403c-aa06-2392743c45ec.png)
+
+Suprisingly, MalwareBytes could only recognize 79% of the malware, and would leave 21% of the malware on the system. For comparison, I ran a quick scan with Bitdefender and that one performed very poorly, detecting none of the samples.
+
+### Bitdefender Quick Scan Results
+![image](https://user-images.githubusercontent.com/66766340/151773488-6903b5ae-b738-4217-853a-fc6feea9ef16.png)
+
 [honeypot]: https://blog.malwarebytes.com/101/2021/05/what-is-a-honeypot-how-they-are-used-in-cybersecurity/
 [Modern Honey Network]: https://github.com/pwnlandia/mhn
 [Google Cloud Platform]: https://cloud.google.com/free/
