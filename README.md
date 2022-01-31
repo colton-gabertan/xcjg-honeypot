@@ -87,7 +87,6 @@ There are also a handful of `POST` requests that try to upload scripts to direct
 After a few more days of letting it run, I checked on the findings via the MHN ui and saw a ton of traffic taking advantage of SMB. Exploiting SMB is very popular with worms and can be used to easily spread malware. Thanks to Dionea being configured to actually capture and save the files, I've successfully collected many samples, ready to be analyzed.
 
 Crosschecking with VirusTotal yields us results, and these binaries are, in fact, live malware.
-> *I would provide the samples, but I feel that it's a bit irresponsible for obvious reasons.*
 
 ### VirusTotal Results
 ![image](https://user-images.githubusercontent.com/66766340/151722579-cbd391ca-5a1c-42c3-b5ee-cc0407e240a8.png)
