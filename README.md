@@ -101,7 +101,7 @@ In total, I was able to collect 105 samples. Some of them are duplicates from th
 
 Suprisingly, MalwareBytes could only recognize 79% of the malware, and would leave 21% of the malware on the system. For comparison, I ran the same scan, but with Bitdefender instead. Bitdefender caught even less than MalwareBytes, picking up 71% or the samples, leaving 29% still on the system.
 
-### Bitdefender Results on Sample Results
+### Bitdefender Results on Sample Directory
 ![image](https://user-images.githubusercontent.com/66766340/151780585-2fe34a1d-e2d1-4745-9280-afc492b757c2.png)
 
 ---
